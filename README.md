@@ -14,3 +14,4 @@ Start your game
 Enter in your IP and Port information your PS4 gave you
 
 Click Download.
+![Alt text](Capture.PNG)
