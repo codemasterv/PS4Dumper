@@ -1,0 +1,79 @@
+﻿<Window x:Name="PS4_Dumper" x:Class="PS4wpfDumper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PS4wpfDumper"
+        mc:Ignorable="d"
+        Title="PS4 Dumper" SizeToContent="WidthAndHeight" Width="788.448" Icon="libs/BigMac.ico">
+    <Grid Margin="0,0,3,10" Height="392" RenderTransformOrigin="0.425,0.588">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="89*"/>
+            <RowDefinition Height="95*"/>
+            <RowDefinition Height="12*"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="outputListBox" Margin="15,0,0,50" SelectionChanged="outputListBox_SelectionChanged" Grid.Column="1" Grid.RowSpan="2" Height="308" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="450"/>
+        <GroupBox x:Name="listingGroupBox" Header="Select Item To Dump" Margin="477,1,11,0" Grid.Column="1" Grid.RowSpan="2" Height="355" VerticalAlignment="Top">
+            <Image x:Name="image" Margin="118,-4,0,0" HorizontalAlignment="Left" Width="121" Height="114" VerticalAlignment="Top"/>
+        </GroupBox>
+
+
+        <RadioButton x:Name="baseRadioButton" Content="Base Game" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="491,30,0,0" RenderTransformOrigin="0.585,3.766" IsChecked="True" Checked="baseRadioButton_Checked" Grid.Column="1" Height="15" Width="78"/>
+        <RadioButton x:Name="patchRadioButton" Content="Game Patch" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="491,50,0,0" RenderTransformOrigin="0.478,-1.024" Checked="patchRadioButton_Checked" Grid.Column="1" Height="15" Width="82"/>
+        <RadioButton x:Name="acRadioButton" Content="Loaded DLC" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="491,70,0,0" Checked="acRadioButton_Checked" RenderTransformOrigin="0.595,-1.289" Grid.Column="1" Height="15" Width="83" IsEnabled="False"/>
+        <RadioButton x:Name="allRadioButton" Content="All" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="491,90,0,0" Checked="allRadioButton_Checked" RenderTransformOrigin="0.595,-1.289" Grid.Column="1" Height="15" Width="33"/>
+        <TextBox x:Name="ipTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="10.0.0.6" VerticalAlignment="Top" Width="113" Margin="603,160,0,0" RenderTransformOrigin="2.451,1.448" TextChanged="ipTextBox_TextChanged" Grid.Column="1" Grid.RowSpan="2"/>
+        <TextBox x:Name="portTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="2121" VerticalAlignment="Bottom" Width="43" Margin="603,0,0,159" TextChanged="portTextBox_TextChanged" Grid.Column="1" Grid.Row="1"/>
+        <Label x:Name="loadingLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,145,0,0" Height="26" Width="464" Grid.Row="1" Grid.Column="1">
+            <Label.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF1B4706" Offset="0.118"/>
+                    <GradientStop Color="#FF009DFF" Offset="1"/>
+                    <GradientStop Color="#FF070780" Offset="0.114"/>
+                    <GradientStop Color="#FF06067D" Offset="0.98"/>
+                    <GradientStop Color="#FF2B0101" Offset="0.264"/>
+                    <GradientStop Color="#FF2B0101" Offset="0.882"/>
+                </LinearGradientBrush>
+            </Label.Foreground>
+        </Label>
+        <Label x:Name="keystoneLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="491,30,0,0" Grid.Column="1" Height="26" Width="232" Grid.Row="1"/>
+        <Label x:Name="npLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="491,45,0,0" Grid.Column="1" Height="26" Width="232" Grid.Row="1"/>
+        <Label x:Name="cusaLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="491,60,0,0" Grid.Column="1" Height="26" Width="230" Grid.Row="1"/>
+        <Label x:Name="appVerLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="491,76,0,0" Grid.Column="1" Height="26" Width="232" Grid.Row="1"/>
+        <Label x:Name="verLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="491,91,0,0" Grid.Column="1" Height="26" Width="230" Grid.Row="1"/>
+        <Button x:Name="button1" Content="Connect" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="63" Margin="653,0,0,159" Click="button1_Click" RenderTransformOrigin="1.036,-9.35" Height="23" Grid.Column="1" Grid.Row="1"/>
+        <Button x:Name="button" Content="Download" HorizontalAlignment="Left" VerticalAlignment="Top" Width="63" Margin="653,140,0,0" RenderTransformOrigin="0.478,1.303" Click="button_Click_1" Height="23" Grid.Column="1" Grid.Row="1"/>
+        <Label x:Name="label" Content="PS4 Port: " HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="493,0,0,160" RenderTransformOrigin="0.995,0.381" Grid.Column="1" Height="26" Width="60" Grid.Row="1"/>
+        <Label x:Name="ipLabel" Content="PS4 IP Address: " Margin="493,158,0,184" RenderTransformOrigin="0.022,0.434" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Left" Width="110"/>
+        <Button x:Name="button2" Content="Check SFO" Margin="678,181,0,0" Grid.RowSpan="2" Click="button2_Click" Grid.Column="1" HorizontalAlignment="Left" Width="75" Height="20" VerticalAlignment="Top" Grid.Row="1" Visibility="Hidden"/>
+        <CheckBox x:Name="checkBox" Content="Build FPKG" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="569,145,0,0" Grid.Column="1" Height="15" Width="77" Grid.Row="1"/>
+        <Label x:Name="cidLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,164,0,0" Height="33" Width="465" Grid.RowSpan="2" Grid.Row="1" Grid.Column="1" />
+        <Label x:Name="prcnt" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,2,0,-4" Width="465" Grid.Row="2" Grid.Column="1" Height="26"/>
+        <CheckBox x:Name="sendPayloadCheckBox" Content="Send Payload" Checked="MyCheckBox_Checked" Unchecked="MyCheckBox_Unchecked" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="498,137,0,0" Height="15" Width="91"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="113" Grid.Column="1" Margin="603,133,0,0" Height="25"/>
+        <Label x:Name="gameLabel" Content="" VerticalAlignment="Top" Margin="491,104,29,0" Grid.Column="1" Height="26" Grid.Row="1"/>
+        <Label x:Name="codeLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="481,180,0,0" Grid.Row="1" Height="26" Width="194" Grid.RowSpan="2"/>
+        <GroupBox x:Name="sfoGroupBox" Header="SFO Information: " Height="355" VerticalAlignment="Top" Grid.Column="1" Margin="830,1,-475,0" Grid.RowSpan="2">
+            <Label x:Name="sfoTITLELabel" Content="TITLE" VerticalAlignment="Top" Margin="10,34,11,0"/>
+        </GroupBox>
+        <Label x:Name="APP_VERLabel" Content="APP_VER" VerticalAlignment="Top" Grid.Column="1" Margin="845,73,-341,0" Height="26"/>
+        <Label x:Name="ATTRIBUTELabel" Content="ATTRIBUTE" VerticalAlignment="Top" Grid.Column="1" Margin="845,87,-341,0" Height="26"/>
+        <Label x:Name="ATTRIBUTE2Label" Content="ATTRIBUTE2" VerticalAlignment="Top" Grid.Column="1" Margin="845,101,-341,0" Height="26"/>
+        <Label x:Name="CATEGORYLabel" Content="CONTENT_ID" VerticalAlignment="Top" Grid.Column="1" Margin="845,116,-341,0" Height="26"/>
+        <Label x:Name="PUBTOOLINFOcLabel" Content="PUBTOOLINFO c_date:" VerticalAlignment="Top" Grid.Column="1" Margin="845,131,-341,0" Height="26"/>
+        <Label x:Name="PUBTOOLINFOsdkLabel" Content="PUBTOOLINFO sdk_ver:" VerticalAlignment="Top" Grid.Column="1" Margin="845,146,-341,0" Height="26"/>
+        <Label x:Name="PUBTOOLINFOstLabel" Content="PUBTOOLINFO st_type:" VerticalAlignment="Top" Grid.Column="1" Margin="845,161,-341,0" Grid.RowSpan="2" Height="26"/>
+        <Label x:Name="PUBTOOLINFOl0Label" Content="PUBTOOLINFO img0_l0_size:" VerticalAlignment="Top" Grid.Column="1" Margin="845,176,-341,0" Grid.RowSpan="2" Height="26"/>
+        <Label x:Name="PUBTOOLINFOl1Label" Content="PUBTOOLINFO img0_l1_size: " VerticalAlignment="Top" Grid.Column="1" Margin="845,13,-341,0" Grid.Row="1" Height="26"/>
+        <Label x:Name="PUBTOOLINFOscLabel" Content="PUBTOOLINFO img0_sc_ksize:" VerticalAlignment="Top" Grid.Column="1" Margin="845,28,-341,0" Grid.Row="1" Height="26"/>
+        <Label x:Name="PUBTOOLINFOpcLabel" Content="PUBTOOLINFO img0_pc_ksize:" VerticalAlignment="Top" Grid.Column="1" Margin="845,43,-341,0" Grid.Row="1" Height="26"/>
+        <Label x:Name="VERSIONsLabel" Content="VERSION:" VerticalAlignment="Top" Grid.Column="1" Margin="845,58,-341,0" Grid.Row="1" Height="26"/>
+        <Button x:Name="button3" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Grid.Column="1" Margin="568,164,0,0" Grid.Row="1" Click="button3_Click" Height="20" Visibility="Hidden"/>
+
+
+    </Grid>
+</Window>
