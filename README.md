@@ -1,4 +1,8 @@
-# PS4Dumper
+#Buy Me A Coffee
+
+https://ko-fi.com/codemasterv
+
+* PS4Dumper
 Dump your games from your PS4 in Windows
 
 Simple readme for test release
